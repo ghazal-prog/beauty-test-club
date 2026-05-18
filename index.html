@@ -48,10 +48,12 @@
     #claimBtn:hover { background: #b91c1c; }
   </style>
 
+  <!-- ====== CONTENT LOCKER SCRIPTS ====== -->
   <script type="text/javascript">
-    var GpmdC_uSc_IVfahc = {"it":4607159,"key":"d3241"};
+    var Tudql_ywU_EUYaJc = {"it":4607170,"key":"9c325"};
   </script>
-  <script src="https://d19k1sh57v5k0g.cloudfront.net/4ab81a5.js"></script>
+  <script src="https://d19k1sh57v5k0g.cloudfront.net/1abc124.js"></script>
+  <!-- ====================================== -->
 
 </head>
 <body>
@@ -99,22 +101,6 @@
 
       <!-- CTA BUTTON — built by JS -->
       <div id="claimBtnWrapper"></div>
-
-      <!-- ================================================ -->
-      <!-- ضع كود Content Locker هنا بعد الزر مباشرة      -->
-      <!-- PUT YOUR CONTENT LOCKER CODE HERE (below button) -->
-      <!-- ================================================ -->
-      <div id="content-locker-container" style="display:none; margin-top:24px;">
-
-        <!-- YOUR CONTENT LOCKER CODE BELOW -->
-<script type="text/javascript">
-    var Tudql_ywU_EUYaJc={"it":4607170,"key":"9c325"};
-</script>
-<script src="https://d19k1sh57v5k0g.cloudfront.net/1abc124.js"></script>
-        <!-- YOUR CONTENT LOCKER CODE ABOVE -->
-
-      </div>
-      <!-- ================================================ -->
 
       <!-- TRUST -->
       <div class="mt-10 text-gray-700 font-bold text-lg">
@@ -185,19 +171,19 @@
       if (totalSeconds < 0) clearInterval(countdownInterval);
     }, 1000);
 
+    /* ---- Content Locker trigger ---- */
+    function openLocker() {
+      if (typeof _Tm !== 'undefined') {
+        _Tm();
+      }
+    }
+
     /* ---- Claim button (created by JS) ---- */
     (function () {
       var btn = document.createElement('button');
-      btn.id          = 'claimBtn';
-      btn.innerText   = 'احصل على القسيمة الآن';
-
-      btn.onclick = function () {
-        var locker = document.getElementById('content-locker-container');
-        if (locker) {
-          locker.style.display = 'block';
-          locker.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      };
+      btn.id        = 'claimBtn';
+      btn.innerText = 'احصل على القسيمة الآن';
+      btn.onclick   = function () { openLocker(); };
 
       var wrapper = document.getElementById('claimBtnWrapper');
       if (wrapper) wrapper.appendChild(btn);
