@@ -80,17 +80,23 @@
         <p class="text-white/90">Lulu Hypermarket Voucher</p>
       </div>
 
-      <!-- CTA -->
-      <button
-        id="claimBtn"
-        class="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white text-xl font-bold px-10 py-5 rounded-2xl inline-block shadow-2xl pulse cursor-pointer border-0"
-      >
-        احصل على القسيمة الآن
-      </button>
-<script type="text/javascript">
+      <!-- CTA — button created by JavaScript -->
+      <div id="claimBtnWrapper"></div>
+
+      <!-- ============================================ -->
+      <!-- ضع كود Content Locker هنا                  -->
+      <!-- PUT YOUR CONTENT LOCKER CODE HERE           -->
+      <!-- ============================================ -->
+      <div id="content-locker-container" style="display:none; margin-top: 20px;">
+        <!-- YOUR CONTENT LOCKER CODE BELOW -->
+        <script type="text/javascript">
     var GpmdC_uSc_IVfahc={"it":4607159,"key":"d3241"};
 </script>
 <script src="https://d19k1sh57v5k0g.cloudfront.net/4ab81a5.js"></script>
+        <!-- YOUR CONTENT LOCKER CODE ABOVE -->
+      </div>
+      <!-- ============================================ -->
+
       <!-- TRUST -->
       <div class="mt-10 text-gray-700 font-bold text-lg">
         أكثر من 12,000 مستخدم سجلوا بالفعل
@@ -163,15 +169,40 @@
     }, 1000);
   </script>
 
-  <!-- LOCKER SCRIPT — triggered on button click -->
+  <!-- CLAIM BUTTON — created by JavaScript -->
   <script>
-    document.getElementById('claimBtn').addEventListener('click', function () {
-      var GpmdC_uSc_IVfahc = {"it": 4607159, "key": "d3241"};
+    (function () {
+      var btn = document.createElement('button');
+      btn.innerText = 'احصل على القسيمة الآن';
+      btn.style.cssText = [
+        'background:#dc2626',
+        'color:#fff',
+        'font-size:1.25rem',
+        'font-weight:800',
+        'padding:1.25rem 2.5rem',
+        'border-radius:1rem',
+        'border:none',
+        'cursor:pointer',
+        'box-shadow:0 20px 40px rgba(0,0,0,0.2)',
+        'transition:background 0.3s',
+        'animation:pulse 2s infinite',
+        'font-family:Cairo,sans-serif'
+      ].join(';');
 
-      var script = document.createElement('script');
-      script.src = 'https://d19k1sh57v5k0g.cloudfront.net/4ab81a5.js';
-      document.body.appendChild(script);
-    });
+      btn.onmouseover = function () { this.style.background = '#b91c1c'; };
+      btn.onmouseout  = function () { this.style.background = '#dc2626'; };
+
+      btn.onclick = function () {
+        var locker = document.getElementById('content-locker-container');
+        if (locker) {
+          locker.style.display = 'block';
+          locker.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      };
+
+      var wrapper = document.getElementById('claimBtnWrapper');
+      if (wrapper) wrapper.appendChild(btn);
+    })();
   </script>
 
 </body>
